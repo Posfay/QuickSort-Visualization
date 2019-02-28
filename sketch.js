@@ -9,15 +9,20 @@ let arrCopy = new Array(LENGTH);
 let rendezve = false;
 let actionsB = [];
 let actionsJ = [];
+let btn;
+let cnv;
 
 
 
 
 function setup() {
-  createCanvas(800, 400);
+  cnv = createCanvas(800, 400);
+  cnv.mousePressed(mousePrsd);
   frameRate(60);
 
   createP("Click to sort with QuickSort");
+  btn = createButton("Reset");
+  btn.mousePressed(btnPressed);
 
   LINE_WIDTH = width / LENGTH;
   LINE_HEIGHT_STEP = height / LENGTH;
@@ -43,10 +48,21 @@ function draw() {
   }
 }
 
-function mousePressed() {
+function mousePrsd() {
   if (!rendezve) {
     quicksort(0, LENGTH - 1);
     rendezve = true;
+  }
+}
+
+function btnPressed() {
+  rendezve = false;
+  actionsB = [];
+  actionsJ = [];
+
+  for (let i = 0; i < LENGTH; i++) {
+    arr[i] = floor(random() * LENGTH);
+    arrCopy[i] = arr[i];
   }
 }
 
