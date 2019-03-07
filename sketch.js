@@ -86,7 +86,7 @@ function draw() {
 
 function mousePrsd() {
   if (!rendezve) {
-    quicksort(0, LENGTH - 1);
+    quicksort(0, arr.length - 1);
     rendezve = true;
   }
 }
